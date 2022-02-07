@@ -9,6 +9,7 @@ app.use(cors());
 app.use(express.json()); 
 
 
+
 // app.use("/api/usuarios", require("./routes/usuario"));
 
 module.exports = app;
