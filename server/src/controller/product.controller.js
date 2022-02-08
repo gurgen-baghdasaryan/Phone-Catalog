@@ -9,7 +9,7 @@ productCtrl.getProduct = async (req, res) => {
 
 productCtrl.createProduct = async (req, res) => {
   const {
-    id,
+    
     name,
     manufacturer,
     description,
@@ -21,7 +21,7 @@ productCtrl.createProduct = async (req, res) => {
     ram,
   } = req.body;
   const newProduct = new Product({
-    id: id,
+    
     name: name,
     manufacturer: manufacturer,
     description: description,
@@ -54,7 +54,7 @@ productCtrl.deleteProduct = async (req, res) => {
 
 productCtrl.updateProduct = async (req, res) => {
   const {
-    id,
+    
     name,
     manufacturer,
     description,
@@ -66,7 +66,7 @@ productCtrl.updateProduct = async (req, res) => {
     ram,
   } = req.body;
   await Product.findByIdAndUpdate(req.params.id, {
-    id,
+    
     name,
     manufacturer,
     description,
