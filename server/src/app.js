@@ -10,6 +10,6 @@ app.use(express.json());
 
 
 
-// app.use("/api/usuarios", require("./routes/usuario"));
+app.use("/api/products", require("./routes/product"));
 
 module.exports = app;
