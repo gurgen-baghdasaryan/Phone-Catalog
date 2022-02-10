@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const ProductList = () => {
+const ProductList = (props) => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -31,14 +31,15 @@ const ProductList = () => {
             </div>
 
             <div className="card-footer d-flex justify-content-around">
-              <Link className="btn btn-primary " to={"/edit/" + lista._id}>
-                Edit
-              </Link>
-              <Link className="btn btn-dark m-0.5" to={"/" + lista._id}>
+              <Link className="btn btn-dark  m-0.8" to={"/product/" + lista._id}>
                 Show more
               </Link>
+              <Link className="btn btn-primary" to={"/edit/" + lista._id}>
+                Edit
+              </Link>
+
               <button
-                className="btn btn-danger m-0.5"
+                className="btn btn-danger"
                 onClick={() => deleteProduct(lista._id)}
               >
                 Delete
