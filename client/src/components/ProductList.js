@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const ProductList = (props) => {
-  const [list, setList] = useState({});
+const ProductList = () => {
+  const [list, setList] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -11,7 +11,9 @@ const ProductList = (props) => {
       setList(res.data);
     };
     getProducts();
-  }, [list]);
+  }, []);
+
+  console.log('list',list)
 
   const deleteProduct = async (id) => {
     await axios.delete("http://localhost:4000/api/products/" + id);

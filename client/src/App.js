@@ -7,6 +7,7 @@ import ProductList from "./components/ProductList";
 import Product from "./components/Product";
 
 function App() {
+  console.log("Product", Product);
   return (
     <div>
       <NavBar />
@@ -15,8 +16,10 @@ function App() {
           <Route exact path="/" element={<ProductList />} />
           <Route exact path="/CreateProduct" element={<CreateProduct />} />
           <Route exact path="/edit/:id" element={<CreateProduct />} />
-          <Route exact path="/product/:id" component={<Product />} />
+          <Route exact path="/product/:id" element={<Product />} />
+          {/* <Route exact path="/product/:id" component={<Product />} /> */}
         </Routes>
+        {/* <Product /> */}
       </div>
     </div>
   );

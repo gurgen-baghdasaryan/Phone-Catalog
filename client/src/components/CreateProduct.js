@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from 'axios'
+import axios from "axios";
 
 const CreateProduct = () => {
   const valueInitial = {
@@ -20,25 +20,23 @@ const CreateProduct = () => {
     const { name, value } = e.target;
     setProduct({ ...product, [name]: value });
   };
-  const dataSave = async(e)=>{
+  const dataSave = async (e) => {
     console.log(product);
     const newProduct = {
-       
+      name: product.name,
+      manufacturer: product.manufacturer,
+      description: product.description,
+      color: product.color,
+      price: product.price,
+      imageFileName: product.imageFileName,
+      screen: product.screen,
+      processor: product.processor,
+      ram: product.ram,
+    };
 
-        name:product.name,
-        manufacturer:product.manufacturer,
-        description:product.description,
-        color:product.color,
-        price:product.price,
-        imageFileName:product.imageFileName,
-        screen:product.screen,
-        processor:product.processor,
-        ram:product.ram,
-    }
-
-    await axios.post('http://localhost:4000/api/products', newProduct)
-    setProduct({...valueInitial})
-  }
+    await axios.post("http://localhost:4000/api/products", newProduct);
+    setProduct({ ...valueInitial });
+  };
 
   return (
     <div className="col-md-5 offset-md-3">
@@ -87,7 +85,6 @@ const CreateProduct = () => {
               type="text"
               className="form-control"
               placeholder="Color..."
-              
               name="color"
               value={product.color}
               onChange={dataCapture}
@@ -123,7 +120,6 @@ const CreateProduct = () => {
               type="text"
               className="form-control"
               placeholder="screen"
-              
               name="screen"
               value={product.screen}
               onChange={dataCapture}
