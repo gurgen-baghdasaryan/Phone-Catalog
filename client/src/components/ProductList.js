@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const ProductList = (props) => {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState({});
 
   useEffect(() => {
     const getProducts = async () => {
