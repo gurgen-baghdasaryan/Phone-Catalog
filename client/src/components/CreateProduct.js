@@ -87,7 +87,7 @@ const CreateProduct = () => {
               type="text"
               className="form-control"
               placeholder="Color..."
-              required
+              
               name="color"
               value={product.color}
               onChange={dataCapture}
@@ -123,7 +123,7 @@ const CreateProduct = () => {
               type="text"
               className="form-control"
               placeholder="screen"
-              required
+              
               name="screen"
               value={product.screen}
               onChange={dataCapture}
@@ -135,7 +135,6 @@ const CreateProduct = () => {
               type="text"
               className="form-control"
               placeholder="modelo"
-              required
               name="processor"
               value={product.processor}
               onChange={dataCapture}
@@ -147,7 +146,6 @@ const CreateProduct = () => {
               type="number"
               className="form-control"
               placeholder="ram gb"
-              required
               name="ram"
               value={product.ram}
               onChange={dataCapture}
