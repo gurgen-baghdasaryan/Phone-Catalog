@@ -23,7 +23,7 @@ const Product = (props) => {
   return (
     <>
       {(loading && <h1>Cargando...</h1>) || (
-        <div className="card mb-3 d-flex flex-column" style={{ width: '100%' }}>
+        <div className="card mb-3 d-flex flex-column" style={{ width: "100%" }}>
           <div className="row g-0">
             <div className="col-md-4">
               <img
@@ -35,18 +35,19 @@ const Product = (props) => {
               <div className="card-body">
                 <h5 className="card-title">Name: {product.name}</h5>
                 <p className="card-text">Description: {product.description}</p>
-                <p className="card-text">Manufacturer: {product.manufacturer}</p>
+                <p className="card-text">
+                  Manufacturer: {product.manufacturer}
+                </p>
                 <p className="card-text">Color: {product.color}</p>
                 <p className="card-text">Price: {product.price}</p>
                 <p className="card-text">Screen: {product.screen}</p>
                 <p className="card-text">Processor: {product.processor}</p>
                 <p className="card-text">Ram: {product.ram}</p>
-                <button type="button" className="btn btn-success m-0 mt-4" >Check our quality</button>
-
-
+                <button type="button" className="btn btn-success m-0 mt-4">
+                  Check our quality
+                </button>
               </div>
             </div>
-
           </div>
         </div>
       )}
