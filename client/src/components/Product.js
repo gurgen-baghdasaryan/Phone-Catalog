@@ -50,7 +50,10 @@ const Product = (props) => {
                 <p className="card-text">Processor: {product.processor}</p>
                 <p className="card-text">Ram: {product.ram}</p>
                 {/* The check button */}
-                <button type="button" className="btn btn-outline-success m-0 mt-4">
+                <button
+                  type="button"
+                  className="btn btn-outline-success m-0 mt-4"
+                >
                   Check our quality
                 </button>
               </div>
