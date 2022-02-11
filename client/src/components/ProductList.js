@@ -42,7 +42,7 @@ const ProductList = () => {
             <div className="card-footer d-flex">
               <div className="card-body">
                 {/* The Show more button */}
-                <Link className="btn btn-success" to={"/product/" + lista._id}>
+                <Link className="btn btn-outline-success" to={"/product/" + lista._id}>
                   Show more
                 </Link>
               </div>
