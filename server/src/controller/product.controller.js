@@ -3,36 +3,44 @@ const productCtrl = {};
 const Product = require("../models/Product");
 
 productCtrl.getProduct = async (req, res) => {
-  const products = await Product.find();
-  res.json(products);
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 productCtrl.createProduct = async (req, res) => {
-  const {
-    name,
-    manufacturer,
-    description,
-    color,
-    price,
-    imageFileName,
-    screen,
-    processor,
-    ram,
-  } = req.body;
-  const newProduct = new Product({
-    name: name,
-    manufacturer: manufacturer,
-    description: description,
-    color: color,
-    price: price,
-    imageFileName: imageFileName,
-    screen: screen,
-    processor: processor,
-    ram: ram,
-  });
+  try {
+    const {
+      name,
+      manufacturer,
+      description,
+      color,
+      price,
+      imageFileName,
+      screen,
+      processor,
+      ram,
+    } = req.body;
+    const newProduct = new Product({
+      name: name,
+      manufacturer: manufacturer,
+      description: description,
+      color: color,
+      price: price,
+      imageFileName: imageFileName,
+      screen: screen,
+      processor: processor,
+      ram: ram,
+    });
 
-  await newProduct.save();
-  res.json({ message: "The product has been created" });
+    await newProduct.save();
+    res.json({ message: "The product has been created" });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 productCtrl.getProductById = async (req, res) => {
@@ -58,32 +66,31 @@ productCtrl.deleteProduct = async (req, res) => {
 };
 
 productCtrl.updateProduct = async (req, res) => {
-  
   try {
     const {
-    name,
-    manufacturer,
-    description,
-    color,
-    price,
-    imageFileName,
-    screen,
-    processor,
-    ram,
-  } = req.body;
+      name,
+      manufacturer,
+      description,
+      color,
+      price,
+      imageFileName,
+      screen,
+      processor,
+      ram,
+    } = req.body;
 
-   await Product.findByIdAndUpdate(req.params.id, {
-    name,
-    manufacturer,
-    description,
-    color,
-    price,
-    imageFileName,
-    screen,
-    processor,
-    ram,
-  });
-  res.json({ message: "The product has been updated" });
+    await Product.findByIdAndUpdate(req.params.id, {
+      name,
+      manufacturer,
+      description,
+      color,
+      price,
+      imageFileName,
+      screen,
+      processor,
+      ram,
+    });
+    res.json({ message: "The product has been updated" });
   } catch (err) {
     console.log(err);
   }

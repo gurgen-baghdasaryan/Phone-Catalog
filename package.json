@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server/src/index.js"
+    "start": "node server/src/index.js",
+    "server": "nodemon server/src/index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server \" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,7 @@
     "mongoose": "^6.2.0"
   },
   "devDependencies": {
+    "concurrently": "^7.0.0",
     "nodemon": "^2.0.15"
   }
 }
