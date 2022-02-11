@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
 const ProductList = () => {
   const [list, setList] = useState([]);
 
@@ -13,13 +14,14 @@ const ProductList = () => {
     getProducts();
   }, []);
 
-  console.log("list", list);
-
-  const deleteProduct = async (id) => {
-    await axios.delete("http://localhost:4000/api/products/" + id);
+  
+  const deleteProduct = async (e, id) => {
+    e.preventDefault();
+      await axios.delete("http://localhost:4000/api/products/" + id);
+      
   };
   return (
-    <div className="row">
+    <div className="row ">
       {list.map((lista) => (
         <div className="col-md-4 p-2" key={lista._id}>
           <div className="card">

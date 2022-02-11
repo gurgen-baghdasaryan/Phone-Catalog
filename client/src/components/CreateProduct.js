@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 import axios from "axios";
 
 const CreateProduct = () => {
@@ -13,9 +15,9 @@ const CreateProduct = () => {
     processor: "",
     ram: 0,
   };
-
+  let { id } = useParams();
   const [product, setProduct] = useState(valueInitial);
-
+  const [subId, setSubId] = useState(id);
   const dataCapture = (e) => {
     const { name, value } = e.target;
     setProduct({ ...product, [name]: value });
@@ -37,6 +39,35 @@ const CreateProduct = () => {
     await axios.post("http://localhost:4000/api/products", newProduct);
     setProduct({ ...valueInitial });
   };
+
+  const updateProduct = async (e) => {
+    e.preventDefault();
+    const newUser = {
+      name: product.name,
+      description: product.description,
+      price: product.price,
+    };
+    await axios.put("http://localhost:4000/api/products/" + subId, newUser);
+    setProduct({ ...valueInitial });
+    setSubId("");
+  };
+
+  const editOne = async (idValue) => {
+    const res = await axios.get(
+      "http://localhost:4000/api/products/" + idValue
+    );
+    setProduct({
+      name: res.data.name,
+      description: res.data.description,
+      price: res.data.price,
+    });
+  };
+
+  useEffect(() => {
+    if (subId !== "") {
+      editOne(subId);
+    }
+  }, [subId]);
 
   return (
     <div className="col-md-5 offset-md-3">
@@ -148,6 +179,11 @@ const CreateProduct = () => {
             />
           </div>
           <button className="btn btn-primary form-control">Save Product</button>
+        </form>
+        <form onSubmit={updateProduct}>
+          <button className="btn btn-primary form-control mt-1">
+            Update Product
+          </button>
         </form>
       </div>
     </div>
