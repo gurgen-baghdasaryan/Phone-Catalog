@@ -113,6 +113,9 @@ node_modules/
 # testing
 /coverage
 
+#client
+/client
+
 # production
 /build
 
