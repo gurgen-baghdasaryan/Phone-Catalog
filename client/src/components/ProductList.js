@@ -1,23 +1,29 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
-const ProductList = () => {
-  const [list, setList] = useState([]);
+//axios allows us to make requests to the backend
+import axios from "axios";
 
+const ProductList = () => {
+  // State where the LIST of prudcts is stored
+  const [list, setList] = useState([]);
+  // This useEffect we will use as many times as necessary to render the value that we have in our API
   useEffect(() => {
+    // The logic of this useEffect is that every time there is a change in the list state, render the component to update the information.
     const getProducts = async () => {
       const res = await axios.get("http://localhost:4000/api/products");
+      // In setList we store what we receive from data
       setList(res.data);
     };
     getProducts();
-  }, []);
-
+  }, [list]);
+  //The logic to delete the product through an id
   const deleteProduct = async (id) => {
     await axios.delete("http://localhost:4000/api/products/" + id);
   };
   return (
     <div className="row ">
+      {/* We tell our state variable to iterate with map */}
       {list.map((lista) => (
         <div className="col-md-4 p-2" key={lista._id}>
           <div className="card">
@@ -32,18 +38,20 @@ const ProductList = () => {
 
             <div className="card-footer d-flex">
               <div className="card-body">
+                {/* The Show more button */}
                 <Link className="btn btn-success" to={"/product/" + lista._id}>
                   Show more
                 </Link>
               </div>
               <div className="card-body d-flex justify-content-end">
+                {/* The Edit button */}
                 <Link
                   className="btn btn-outline-dark"
                   to={"/edit/" + lista._id}
                 >
                   Edit
                 </Link>
-
+                {/* The delete button */}
                 <button
                   className="btn btn-outline-dark "
                   onClick={() => deleteProduct(lista._id)}
