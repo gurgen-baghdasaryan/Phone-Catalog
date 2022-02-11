@@ -1,7 +1,11 @@
+// The controller file will have the logic/function 
+// That allows us to respond to each of the requests we make (GET POST PUT DELETE)
 const productCtrl = {};
 
+// We import our model
 const Product = require("../models/Product");
 
+// Here it will search and store the information that comes from our client
 productCtrl.getProduct = async (req, res) => {
   try {
     const products = await Product.find();
@@ -11,6 +15,7 @@ productCtrl.getProduct = async (req, res) => {
   }
 };
 
+// The logic to create product (the POST method)
 productCtrl.createProduct = async (req, res) => {
   try {
     const {
@@ -36,6 +41,7 @@ productCtrl.createProduct = async (req, res) => {
       ram: ram,
     });
 
+    // We are storing a new document of what comes from the Clientee
     await newProduct.save();
     res.json({ message: "The product has been created" });
   } catch (err) {
@@ -43,16 +49,22 @@ productCtrl.createProduct = async (req, res) => {
   }
 };
 
+
+// Let's get a single product
 productCtrl.getProductById = async (req, res) => {
   console.log(req);
   try {
+    // We tell it to look for the Id
     const product = await Product.findById(req.params.id);
+    // Returns us through a json
     res.json(product);
   } catch (err) {
     console.log(err);
   }
 };
 
+// Logic to delete the product by Id, that where it finds the Id parameter 
+// That comes to us by the ·req we will find it and we will eliminate it from our model
 productCtrl.deleteProduct = async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
@@ -65,6 +77,8 @@ productCtrl.deleteProduct = async (req, res) => {
   }
 };
 
+// Here we have the request ·Put
+// It will look for it inside our model and it will ·Update it
 productCtrl.updateProduct = async (req, res) => {
   try {
     const {
