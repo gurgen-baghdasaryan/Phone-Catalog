@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-
 const ProductList = () => {
   const [list, setList] = useState([]);
 
@@ -14,10 +13,8 @@ const ProductList = () => {
     getProducts();
   }, []);
 
-  
   const deleteProduct = async (id) => {
-      await axios.delete("http://localhost:4000/api/products/" + id);
-      
+    await axios.delete("http://localhost:4000/api/products/" + id);
   };
   return (
     <div className="row ">
@@ -35,26 +32,25 @@ const ProductList = () => {
 
             <div className="card-footer d-flex">
               <div className="card-body">
-                <Link
-                  className="btn btn-success"
-                  to={"/product/" + lista._id}
-                >
+                <Link className="btn btn-success" to={"/product/" + lista._id}>
                   Show more
                 </Link>
               </div>
               <div className="card-body d-flex justify-content-end">
-              <Link className="btn btn-outline-dark" to={"/edit/" + lista._id}>
-                Edit
-              </Link>
+                <Link
+                  className="btn btn-outline-dark"
+                  to={"/edit/" + lista._id}
+                >
+                  Edit
+                </Link>
 
-              <button
-                className="btn btn-outline-dark "
-                onClick={() => deleteProduct(lista._id)}
-              >
-                Delete
-              </button>
-              </div>  
-              
+                <button
+                  className="btn btn-outline-dark "
+                  onClick={() => deleteProduct(lista._id)}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
         </div>
