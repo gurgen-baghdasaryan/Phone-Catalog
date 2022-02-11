@@ -15,8 +15,7 @@ const ProductList = () => {
   }, []);
 
   
-  const deleteProduct = async (e, id) => {
-    e.preventDefault();
+  const deleteProduct = async (id) => {
       await axios.delete("http://localhost:4000/api/products/" + id);
       
   };
