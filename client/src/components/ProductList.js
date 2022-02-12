@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 //imporing React icons
-
+import { FaRegTrashAlt } from "react-icons/fa";
+import { GrUpdate } from "react-icons/gr";
 
 //axios allows us to make requests to the backend
 import axios from "axios";
@@ -51,18 +52,17 @@ const ProductList = () => {
               <div className="card-body d-flex justify-content-around">
                 {/* The Edit button */}
                 <Link
-                  
                   className="btn btn-outline-dark"
                   to={"/edit/" + lista._id}
                 >
-                  Edit
+                  <GrUpdate />
                 </Link>
                 {/* The delete button */}
                 <button
                   className="btn btn-outline-dark "
                   onClick={() => deleteProduct(lista._id)}
                 >
-                  Delete
+                  <FaRegTrashAlt />
                 </button>
               </div>
             </div>
