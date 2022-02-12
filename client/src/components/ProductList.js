@@ -13,7 +13,7 @@ const ProductList = () => {
   useEffect(() => {
     // The logic of this useEffect is that every time there is a change in the list state, render the component to update the information.
     const getProducts = async () => {
-      const res = await axios.get("https://phonemern.herokuapp.com/api/products");
+      const res = await axios.get("http://localhost:4000/api/products");
       // In setList we store what we receive from data
       setList(res.data);
     };
@@ -21,7 +21,7 @@ const ProductList = () => {
   }, [list]);
   //The logic to delete the product through an id
   const deleteProduct = async (id) => {
-    await axios.delete("https://phonemern.herokuapp.com/api/products/" + id);
+    await axios.delete("http://localhost:4000/api/products/" + id);
   };
   return (
     <div className="row ">
