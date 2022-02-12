@@ -1,4 +1,7 @@
 // Connection string to be able to connect our server with our database
+require("dotenv").config();
+
+
 const mongoose = require("mongoose");
 
 const URI = process.env.MONGODB_URI

@@ -1,7 +1,7 @@
 // Server settings
+
 const express = require("express");
 const cors = require("cors");
-
 // This constant stores what we already require from express
 const app = express();
 
