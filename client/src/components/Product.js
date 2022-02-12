@@ -6,7 +6,6 @@ const Product = (props) => {
   // State where the product is stored
   const [product, setproduct] = useState({});
   // State where the loading is stored
-  // State where the loading is stored
   const [loading, setLoading] = useState(false);
 
   // Id of product
