@@ -1,5 +1,4 @@
 //RRD allows us to route our components
-//RRD allows us to route our components
 import { Routes, Route } from "react-router-dom";
 
 // Importing our componentssss
@@ -15,8 +14,7 @@ function App() {
       <NavBar />
       <div className="container p-4">
         <Routes>
-          {/* Here we are going to include our routes */}
-          {/* Here we are going to include our routes */}
+          {/* Here we are going to include our routes */}          
           <Route exact path="/" element={<ProductList />} />
           <Route exact path="/CreateProduct" element={<CreateProduct />} />
           <Route exact path="/edit/:id" element={<CreateProduct />} />
