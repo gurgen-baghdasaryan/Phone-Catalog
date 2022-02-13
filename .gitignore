@@ -83,8 +83,7 @@ typings/
 .nuxt
 dist
 
-#client
-client
+
 
 # Gatsby files
 .cache/
