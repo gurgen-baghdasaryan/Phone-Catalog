@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const mongoose = require("mongoose");
 
-const URI = process.env.MONGODB_URI;
+const URI = "mongodb+srv://gugodev:1234gugodev@cluster0.wezue.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
   
 
 // It connects through the URI which is the variable we are connecting to the information we store in our environment variable.
