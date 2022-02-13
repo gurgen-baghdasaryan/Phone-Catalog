@@ -42,7 +42,7 @@ const CreateProduct = () => {
       ram: product.ram,
     };
     // Here we create the post logic.
-    await axios.post("http://localhost:4000/api/products", newProduct);
+    await axios.post("https://phonemern.herokuapp.com/api/products", newProduct);
     // Updating the initial value
     setProduct({ ...valueInitial });
   };
@@ -55,7 +55,7 @@ const CreateProduct = () => {
       price: product.price,
     };
     //The put petition logic concatenated with subId
-    await axios.put("http://localhost:4000/api/products/" + subId, newUser);
+    await axios.put("https://phonemern.herokuapp.com/api/products/" + subId, newUser);
     setProduct({ ...valueInitial });
     // Clean up our state
     setSubId("");
@@ -63,7 +63,7 @@ const CreateProduct = () => {
   //logic to make the API request
   const editOne = async (idValue) => {
     const res = await axios.get(
-      "http://localhost:4000/api/products/" + idValue
+      "https://phonemern.herokuapp.com/api/products/" + idValue
     );
     setProduct({
       name: res.data.name,
