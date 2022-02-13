@@ -1,7 +1,7 @@
 //RRD allows us to route our components
 import { Routes, Route } from "react-router-dom";
 
-// Importing our components
+// Importing our componentssss
 import "./App.css";
 import NavBar from "./components/NavBar";
 import CreateProduct from "./components/CreateProduct";
