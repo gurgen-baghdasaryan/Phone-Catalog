@@ -4,9 +4,8 @@ require("dotenv").config();
 
 const mongoose = require("mongoose");
 
-const URI = process.env.MONGODB_URI
-  ? process.env.MONGODB_URI
-  : "mongodb://localhost/dbtest";
+const URI = process.env.MONGODB_URI;
+  
 
 // It connects through the URI which is the variable we are connecting to the information we store in our environment variable.
 mongoose.connect(URI);
