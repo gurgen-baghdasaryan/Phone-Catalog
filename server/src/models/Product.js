@@ -20,7 +20,7 @@ const productSchema = new Schema(
   {
     // The subject of when the document was created
     // And when it was last updated is automatically stored
-    timestamps: true,
+    timestamps: Date,
   }
 );
 
