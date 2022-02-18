@@ -2,6 +2,6 @@
 #adddd
 node modules/
 #
-.env
+env
 
 .gitignore
