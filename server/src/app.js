@@ -1,7 +1,12 @@
 // Server settings
-
 const express = require("express");
 const cors = require("cors");
+const connectionDB = require('./config/db');//conection to BBDD with Mongoose
+const productRoutes = require('./routes/product'); //Create the express router object 
+
+
+connectionDB();
+
 // This constant stores what we already require from express
 const app = express();
 
@@ -14,6 +19,6 @@ app.use(cors()); // Cors It is a module that allows us to have a relationship be
 app.use(express.json()); // When we do the get request, it returns a json
 
 // Route to our product API
-app.use("/api/products", require("./routes/product"));
+app.use("/api/products", productRoutes);
 
 module.exports = app;
