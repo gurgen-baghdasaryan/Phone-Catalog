@@ -11,8 +11,6 @@ connectionDB();
 // This constant stores what we already require from express
 const app = express();
 
-// Here we tell the constant application to save us a variable called port and as a second parameter we tell it on which port the server has to listen/execute
-app.set("port", process.env.PORT || 4000);
 
 //middleware/logic
 //middleware/logic
@@ -22,4 +20,7 @@ app.use(express.json()); // When we do the get request, it returns a json
 // Route to our product API
 app.use("/api/products", productRoutes);
 
-module.exports = app;
+// Here we tell the constant application to save us a variable called port and as a second parameter we tell it on which port the server has to listen/execute
+const PORT = process.env.PORT || 4000
+// This logic is to run the server
+app.listen(PORT, ()=> console.log(`server running in the port  ${PORT}`))

@@ -2,9 +2,9 @@
 // And we have the schema of the information that we are going to store in the API
 
 // Destructuring to import Mongoose characters and functionalities(schema and model)
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
 
-const productSchema = new Schema(
+const productSchema = mongoose.Schema(
   {
     name: String,
     manufacturer: String,
@@ -18,10 +18,11 @@ const productSchema = new Schema(
   },
 
   {
-    // The subject of when the document was created
-    // And when it was last updated is automatically stored
     timestamps: true,
   }
 );
+// The subject of when the document was created
+// And when it was last updated is automatically stored
 
-module.exports = model("Product", productSchema);
+const Product = mongoose.model("product", productSchema);
+module.exports = Product;
