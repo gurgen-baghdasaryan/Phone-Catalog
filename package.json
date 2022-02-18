@@ -2,12 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node server/src/app.js",
     "server": "nodemon server/src/app.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server \" \"npm run client\""
+    "dev": "concurrently \"npm run server \" \"npm run client\"",
+    "data:import": "node server/src/scripts.js"
   },
   "keywords": [],
   "author": "",
