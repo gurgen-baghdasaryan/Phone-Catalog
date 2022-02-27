@@ -4,11 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node server/src/app.js",
-    "server": "nodemon server/src/app.js",
+    "start": "node server/app.js",
+    "server": "nodemon server/app.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server \" \"npm run client\"",
-    "data:import": "node server/src/scripts.js"
+    "data:import": "node server/scripts.js"
   },
   "keywords": [],
   "author": "",

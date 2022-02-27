@@ -14,7 +14,6 @@ function App() {
       <div className="container p-4">
         <Routes>
           {/* Here we are going to include our routes */}          
-          {/* Here we are going to include our routes */}          
           <Route exact path="/" element={<ProductList />} />
           <Route exact path="/CreateProduct" element={<CreateProduct />} />
           <Route exact path="/edit/:id" element={<CreateProduct />} />

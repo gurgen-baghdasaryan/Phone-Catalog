@@ -15,7 +15,7 @@ const Product = (props) => {
     const getProductById = async () => {
       // Update our load state to true
       setLoading(true);
-      const res = await axios.get(`http://localhost:5000/api/products/${id}`);
+      const res = await axios.get(`https://phonethe.herokuapp.com/api/products/${id}`);
       setproduct(res.data);
     };
     getProductById();
